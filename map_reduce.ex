@@ -21,3 +21,7 @@ IO.puts Math.sum_list(Math.double_each([1,2,3,4]), 0)
 IO.puts Enum.reduce(Enum.map([1,2,3], fn(x) -> x * 2 end), 0, fn(x, acc) -> x + acc end)
 
 IO.puts Enum.reduce(Enum.map([1,2,3], &(&1 * 2)), 0, &+/2)
+
+odd? = &(rem(&1, 2) !=0)
+
+IO.puts 1..100_000 |> Enum.map(&(&1 * 3)) |> Enum.filter(odd?) |> Enum.sum
